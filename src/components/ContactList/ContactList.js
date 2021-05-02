@@ -2,7 +2,11 @@ import { connect } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 import styles from '../ContactList/ContactList.module.css';
-import actions from '../../redux/contactsActions';
+// import actions from '../../redux/contactsActions';
+import operations from '../../redux/contactsOperations';
+
+
+
 
 const ContactList = ({ contactsForList, onDeleteContact }) => (
   <ul className={styles.contactList}>
@@ -43,7 +47,7 @@ const getVisibleContacts = (allContacts, filter = '') => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  onDeleteContact: id => dispatch(actions.deleteContact(id)),
+  onDeleteContact: id => dispatch(operations.deleteContact(id)),
 });
 
 const mapStateToProps = ({ contacts: { items, filter } }) => {
