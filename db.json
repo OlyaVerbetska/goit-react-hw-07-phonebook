@@ -2,8 +2,13 @@
   "contacts": [
     {
       "name": "Rosie Simpson",
-      "number": "0000000000",
+      "number": "111111111111",
       "id": 1
+    },
+    {
+      "name": "Ольга",
+      "number": "111111111111",
+      "id": 2
     }
   ]
 }
