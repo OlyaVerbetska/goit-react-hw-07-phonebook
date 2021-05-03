@@ -2,7 +2,8 @@ import { v4 as uuidv4 } from 'uuid';
 import styles from '../Filter/Filter.module.css';
 import { connect } from 'react-redux';
 
-import actions from '../../redux/contactsActions';
+import {contactActions,contactSelectors } from '../../redux/contacts'
+
 
 const Filter = ({ onFilterValue, value }) => (
   <>
@@ -19,10 +20,10 @@ const Filter = ({ onFilterValue, value }) => (
   </>
 );
 const mapStateToProps = state => ({
-  value: state.contacts.filter,
+  value: contactSelectors.getFilter(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-  onFilterValue: e => dispatch(actions.changeFilter(e.currentTarget.value)),
+  onFilterValue: e => dispatch(contactActions.changeFilter(e.currentTarget.value)),
 });
-export default connect(mapStateToProps,mapDispatchToProps )(Filter);
+export default connect(mapStateToProps,mapDispatchToProps)(Filter);

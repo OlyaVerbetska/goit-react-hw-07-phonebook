@@ -41,3 +41,7 @@
   border-radius: 10px;
   outline: transparent;
 }
+.Loader {
+  margin: 30px 0;
+  text-align: center;
+}

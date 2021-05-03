@@ -3,9 +3,9 @@ import { createReducer } from '@reduxjs/toolkit';
 import actions from './contactsActions';
 
 const {
-  fetchContactRequest,
-  fetchContactSuccess,
-  fetchContactError,
+  fetchContactsRequest,
+  fetchContactsSuccess,
+  fetchContactsError,
   addContactRequest, addContactSuccess, addContactError,deleteContactRequest,
   deleteContactSuccess,
   deleteContactError } = actions;
@@ -16,7 +16,7 @@ const contacts = {
 };
 
 const items = createReducer(contacts.items, {
-  [fetchContactSuccess]: (_, { payload }) => payload,
+  [fetchContactsSuccess]: (_, { payload }) => payload,
   [addContactSuccess]: (state, { payload }) => [payload, ...state],
   [deleteContactSuccess]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
@@ -24,9 +24,9 @@ const items = createReducer(contacts.items, {
 });
 
 const loading = createReducer(false, {
-  [fetchContactRequest]: () => true,
-  [fetchContactSuccess]: ()=> false, 
-  [fetchContactError]: () => false,
+  [fetchContactsRequest]: () => true,
+  [fetchContactsSuccess]: ()=> false, 
+  [fetchContactsError]: () => false,
   [addContactRequest]: () => true,
   [addContactSuccess]: ()=> false, 
   [addContactError]: () => false,
@@ -39,6 +39,8 @@ const loading = createReducer(false, {
 const filter = createReducer(contacts.filter, {
   [actions.changeFilter]: (_, { payload }) => payload,
 });
+
+
 
 //eslint-disable-next-line
 export default combineReducers({
